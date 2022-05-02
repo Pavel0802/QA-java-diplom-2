@@ -16,7 +16,7 @@ public class ChangeDataUserTest {
     private User user;
     private String accessToken;
 
-    @Before
+    @Before //создаем случайного пользователя для возможности авторизированного запроса
     public void setUp() {
         userRequest = new UserRequest();
         user = User.createUser();
@@ -27,7 +27,7 @@ public class ChangeDataUserTest {
         Tokens.setAccessToken(accessToken);
     }
 
-    @After
+    @After //удаляем созданного пользователя
     public void tearDown() {
         if (accessToken != null) {
             userRequest.delete().then().statusCode(202);

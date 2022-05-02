@@ -15,14 +15,14 @@ public class LoginUserTest {
     private UserRequest userRequest;
     private User user;
 
-    @Before
+    @Before //создаем случайного пользователя
     public void setUp() {
         userRequest = new UserRequest();
         user = User.createUser();
         userRequest.create(user.toString());
     }
 
-    @After
+    @After //удаляем созданного пользователя
     public void tearDown() {
         JsonElement accessTokenFull = userRequest.login(UserLogin.from(user).toString()).thenReturn()
                 .body().as(JsonObject.class).get("accessToken");
