@@ -24,7 +24,7 @@ public class CreateOrderTest {
         userRequest = new UserRequest();
         user = User.createUser();
         String accessTokenFull = userRequest.create(user.toString()).then().extract().body().path("accessToken");
-        accessToken = accessTokenFull.toString().substring(7, 178);
+        accessToken = accessTokenFull.substring(7, 178);
         if (accessToken != null) {
             Tokens.setAccessToken(accessToken);
         }

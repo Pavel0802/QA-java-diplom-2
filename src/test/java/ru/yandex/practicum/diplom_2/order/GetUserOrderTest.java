@@ -24,7 +24,7 @@ public class GetUserOrderTest {
         userRequest = new UserRequest();
         user = User.createUser();
         String accessTokenFull = userRequest.create(user.toString()).then().extract().body().path("accessToken");
-        accessToken = accessTokenFull.toString().substring(7, 178);
+        accessToken = accessTokenFull.substring(7, 178);
         if (accessToken != null) {
             Tokens.setAccessToken(accessToken);
         }
@@ -49,7 +49,7 @@ public class GetUserOrderTest {
 
     @Test
     @DisplayName("Вывод списка заказов неавторизованного пользователя")
-    @Description("Тест проверяет вывод ошибки и сообщение о необходимости авторизации")
+    @Description("Тест проверяет вывод ошибки и сообщение о необходимости авторизации при запросе списка заказов неавторизованного пользователя")
     public void getUnauthorizedUserOrderTest(){
                 order.getUserOrderUnauthorized().then().assertThat()
                 .body("success", equalTo(false))

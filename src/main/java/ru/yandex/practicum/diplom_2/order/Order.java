@@ -1,5 +1,6 @@
 package ru.yandex.practicum.diplom_2.order;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import ru.yandex.practicum.diplom_2.user.BaseData;
 import ru.yandex.practicum.diplom_2.user.Tokens;
@@ -19,8 +20,8 @@ public class Order extends BaseData {
         return json;
     }
 
+    @Step("Создание заказа неавторизированного пользователя")
     public Response createOrderUnauthorized() {
-        System.out.println(json);
         return given()
                 .spec(getBaseSpec())
                 .body(json)
@@ -28,8 +29,8 @@ public class Order extends BaseData {
 
     }
 
+    @Step("Создание заказа авторизированного пользователя")
     public Response createOrderAuthorized() {
-        System.out.println(json);
         return given()
                 .spec(getBaseSpec())
                 .auth().oauth2(Tokens.getAccessToken())
@@ -37,6 +38,7 @@ public class Order extends BaseData {
                 .post(ORDER_PATH);
     }
 
+    @Step("Вывод заказов авторизированного пользователя")
     public Response getUserOrderAuthorized() {
         return given()
                 .spec(getBaseSpec())
@@ -44,6 +46,7 @@ public class Order extends BaseData {
                 .get(ORDER_PATH);
     }
 
+    @Step("Вывод заказов неавторизированного пользователя")
     public Response getUserOrderUnauthorized() {
         return given()
                 .spec(getBaseSpec())

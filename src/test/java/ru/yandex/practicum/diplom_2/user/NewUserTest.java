@@ -42,7 +42,7 @@ public class NewUserTest {
 
     @Test
     @DisplayName("Создание двух одинаковых пользователей")
-    @Description("Тест проверяет появление ошибки в случае создания двух одинаковых пользователей")
+    @Description("Тест проверяет появление ошибки в случае если пользователь уже существует")
     public void userCanBeNotCreateIsTwoIdenticalUsers() {
         userRequest.create(user.toString()).then().statusCode(200);
         userRequest.create(user.toString()).then().assertThat()

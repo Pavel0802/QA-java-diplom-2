@@ -1,5 +1,6 @@
 package ru.yandex.practicum.diplom_2.order;
 
+import io.qameta.allure.Step;
 import org.apache.commons.lang3.RandomUtils;
 import ru.yandex.practicum.diplom_2.user.BaseData;
 
@@ -28,7 +29,8 @@ public class IngredientList extends BaseData {
         this.data = data;
     }
 
-    public IngredientList   getAllIngredients() {
+    @Step("Вывод списка всех ингредиентов в виде объекта IngredientList")
+    public IngredientList getAllIngredients() {
         IngredientList ingredientList = given()
                 .spec(getBaseSpec())
                 .get(BASE_URL + "ingredients/")
@@ -55,8 +57,7 @@ public class IngredientList extends BaseData {
             }
             String ingredientOrder = ingredientList.getData().get(randomIngredient).get_id();
             orderRequest = orderRequest + "\"" + ingredientOrder + "\"" + pp;
-                    }
+        }
         orderRequest = orderRequest + "]";
-        System.out.println(orderRequest);
     }
 }

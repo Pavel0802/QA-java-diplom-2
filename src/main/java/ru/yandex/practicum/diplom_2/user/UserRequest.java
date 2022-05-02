@@ -34,7 +34,7 @@ public class UserRequest extends BaseData {
                 .patch(USER_PATH + "user/");
     }
 
-    @Step("Изменение данных неавторизированного пользователя {userLogin}")
+    @Step("Изменение данных неавторизированного пользователя")
     public static Response changeUnauthorized(String changeData) {
         return given()
                 .spec(getBaseSpec())

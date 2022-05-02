@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
 
-public class ChangeDataUserTest {
+public class ChangeDataAuthorizedUserTest {
     private UserRequest userRequest;
     private User user;
     private String accessToken;
@@ -35,8 +35,8 @@ public class ChangeDataUserTest {
     }
 
     @Test
-    @DisplayName("Изменение email пользователя")
-    @Description("Тест проверяет возможность изменения email пользователя")
+    @DisplayName("Изменение email авторизированного пользователя")
+    @Description("Тест проверяет возможность изменения email авторизированного пользователя")
     public void userChangeEmail() {
         String changeData = "{\"" + "email" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.login + "\"}";
         userRequest.change(changeData).then().assertThat()
@@ -45,8 +45,8 @@ public class ChangeDataUserTest {
     }
 
     @Test
-    @DisplayName("Изменение пароля пользователя")
-    @Description("Тест проверяет возможность изменения пароля пользователя")
+    @DisplayName("Изменение пароля авторизированного пользователя")
+    @Description("Тест проверяет возможность изменения пароля авторизированного пользователя")
     public void userChangePassword() {
         String changeData = "{\"" + "password" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.password + "\"}";
         userRequest.change(changeData).then().assertThat()
@@ -55,8 +55,8 @@ public class ChangeDataUserTest {
     }
 
     @Test
-    @DisplayName("Изменение имени пользователя")
-    @Description("Тест проверяет возможность изменения имени пользователя")
+    @DisplayName("Изменение имени авторизированного пользователя")
+    @Description("Тест проверяет возможность изменения имени авторизированного пользователя")
     public void userChangeName() {
         String changeData = "{\"" + "name" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.name + "\"}";
         userRequest.change(changeData).then().assertThat()

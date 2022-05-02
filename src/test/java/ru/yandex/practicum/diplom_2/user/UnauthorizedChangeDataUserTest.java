@@ -35,8 +35,8 @@ public class UnauthorizedChangeDataUserTest {
     }
 
     @Test
-    @DisplayName("Изменение email пользователя")
-    @Description("Тест проверяет возможность изменения email неавторизированного пользователя")
+    @DisplayName("Изменение email неавторизированного пользователя")
+    @Description("Тест проверяет появление ошибки при попытке изменения email неавторизированного пользователя")
     public void userChangeEmail() {
         String changeData = "{\"" + "email" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.login + "\"}";
         userRequest.changeUnauthorized(changeData).then().assertThat()
@@ -45,8 +45,8 @@ public class UnauthorizedChangeDataUserTest {
     }
 
     @Test
-    @DisplayName("Изменение пароля пользователя")
-    @Description("Тест проверяет возможность изменения пароля неавторизированного пользователя")
+    @DisplayName("Изменение пароля неавторизированного пользователя")
+    @Description("Тест проверяет появление ошибки при попытке изменения пароля неавторизированного пользователя")
     public void userChangePassword() {
         String changeData = "{\"" + "password" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.password + "\"}";
         userRequest.changeUnauthorized(changeData).then().assertThat()
@@ -55,8 +55,8 @@ public class UnauthorizedChangeDataUserTest {
     }
 
     @Test
-    @DisplayName("Изменение имени пользователя")
-    @Description("Тест проверяет возможность изменения имени неавторизированного пользователя")
+    @DisplayName("Изменение имени неавторизированного пользователя")
+    @Description("Тест проверяет появление ошибки при попытке изменения имени неавторизированного пользователя")
     public void userChangeName() {
         String changeData = "{\"" + "name" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.name + "\"}";
         userRequest.changeUnauthorized(changeData).then().assertThat()
