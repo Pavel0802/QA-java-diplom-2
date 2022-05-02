@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ru.yandex.practicum.diplom_2.user.NewUserTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 68.079 s - in ru.yandex.practicum.diplom_2.user.NewUserTest

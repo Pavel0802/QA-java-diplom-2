@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ru.yandex.practicum.diplom_2.user.ChangeDataAuthorizedUserTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 26.893 s - in ru.yandex.practicum.diplom_2.user.ChangeDataAuthorizedUserTest
