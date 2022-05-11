@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ru.yandex.practicum.diplom_2.order.GetUserOrderTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 44.334 s - in ru.yandex.practicum.diplom_2.order.GetUserOrderTest
