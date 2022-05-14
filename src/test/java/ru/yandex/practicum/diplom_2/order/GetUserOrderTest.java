@@ -40,20 +40,20 @@ public class GetUserOrderTest {
     @Test
     @DisplayName("Вывод списка заказов авторизованного пользователя")
     @Description("Тест проверяет, что запрос положительный, список заказов пользователя не пустой")
-    public void getAuthorizedUserOrderTest(){
-               order.getUserOrderAuthorized().then().assertThat()
+    public void getAuthorizedUserOrderTest() {
+        order.getUserOrderAuthorized().then().assertThat()
+                .statusCode(200)
                 .body("success", equalTo(true))
-                .body("orders", notNullValue())
-                .statusCode(200);
-                    }
+                .body("orders", notNullValue());
+    }
 
     @Test
     @DisplayName("Вывод списка заказов неавторизованного пользователя")
     @Description("Тест проверяет вывод ошибки и сообщение о необходимости авторизации при запросе списка заказов неавторизованного пользователя")
-    public void getUnauthorizedUserOrderTest(){
-                order.getUserOrderUnauthorized().then().assertThat()
+    public void getUnauthorizedUserOrderTest() {
+        order.getUserOrderUnauthorized().then().assertThat()
+                .statusCode(401)
                 .body("success", equalTo(false))
-                .body("message", equalTo("You should be authorised"))
-                .statusCode(401);
+                .body("message", equalTo("You should be authorised"));
     }
 }

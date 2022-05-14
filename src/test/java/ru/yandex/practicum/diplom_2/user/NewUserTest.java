@@ -36,8 +36,8 @@ public class NewUserTest {
     @Description("Тест проверяет возможность создать пользователя. Запрос возвращает код ответа \"200\" с телом ответа \"success\":true")
     public void userCanBeCreated() {
         userRequest.create(user.toString()).then().assertThat()
-                .body("success", equalTo(true))
-                .statusCode(200);
+                .statusCode(200)
+                .body("success", equalTo(true));
     }
 
     @Test
@@ -46,8 +46,8 @@ public class NewUserTest {
     public void userCanBeNotCreateIsTwoIdenticalUsers() {
         userRequest.create(user.toString()).then().statusCode(200);
         userRequest.create(user.toString()).then().assertThat()
-                .body("message", equalTo("User already exists"))
-                .statusCode(403);
+                .statusCode(403)
+                .body("message", equalTo("User already exists"));
     }
 
     @Test
@@ -56,8 +56,8 @@ public class NewUserTest {
     public void userNotBeCreateWithoutRequiredFieldPassword() {
         User user2 = new User(user.login, "", user.name);
         userRequest.create(user2.toString()).then().assertThat()
-                .body("message", equalTo("Email, password and name are required fields"))
-                .statusCode(403);
+                .statusCode(403)
+                .body("message", equalTo("Email, password and name are required fields"));
     }
 
     @Test
@@ -66,8 +66,8 @@ public class NewUserTest {
     public void userNotBeCreateWithoutRequiredFieldLogin() {
         User user2 = new User("", user.password, user.name);
         userRequest.create(user2.toString()).then().assertThat()
-                .body("message", equalTo("Email, password and name are required fields"))
-                .statusCode(403);
+                .statusCode(403)
+                .body("message", equalTo("Email, password and name are required fields"));
     }
 
     @Test

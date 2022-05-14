@@ -40,8 +40,8 @@ public class ChangeDataAuthorizedUserTest {
     public void userChangeEmail() {
         String changeData = "{\"" + "email" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.login + "\"}";
         userRequest.change(changeData).then().assertThat()
-                .body("success", equalTo(true))
-                .statusCode(200);
+                .statusCode(200)
+                .body("success", equalTo(true));
     }
 
     @Test
@@ -50,8 +50,8 @@ public class ChangeDataAuthorizedUserTest {
     public void userChangePassword() {
         String changeData = "{\"" + "password" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.password + "\"}";
         userRequest.change(changeData).then().assertThat()
-                .body("success", equalTo(true))
-                .statusCode(200);
+                .statusCode(200)
+                .body("success", equalTo(true));
     }
 
     @Test
@@ -60,7 +60,7 @@ public class ChangeDataAuthorizedUserTest {
     public void userChangeName() {
         String changeData = "{\"" + "name" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.name + "\"}";
         userRequest.change(changeData).then().assertThat()
-                .body("success", equalTo(true))
-                .statusCode(200);
+                .statusCode(200)
+                .body("success", equalTo(true));
     }
 }

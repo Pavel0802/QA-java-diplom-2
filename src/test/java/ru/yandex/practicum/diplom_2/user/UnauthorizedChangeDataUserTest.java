@@ -40,8 +40,8 @@ public class UnauthorizedChangeDataUserTest {
     public void userChangeEmail() {
         String changeData = "{\"" + "email" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.login + "\"}";
         userRequest.changeUnauthorized(changeData).then().assertThat()
-                .body("message", equalTo("You should be authorised"))
-                .statusCode(401);
+                .statusCode(401)
+                .body("message", equalTo("You should be authorised"));
     }
 
     @Test
@@ -50,8 +50,8 @@ public class UnauthorizedChangeDataUserTest {
     public void userChangePassword() {
         String changeData = "{\"" + "password" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.password + "\"}";
         userRequest.changeUnauthorized(changeData).then().assertThat()
-                .body("message", equalTo("You should be authorised"))
-                .statusCode(401);
+                .statusCode(401)
+                .body("message", equalTo("You should be authorised"));
     }
 
     @Test
@@ -60,7 +60,7 @@ public class UnauthorizedChangeDataUserTest {
     public void userChangeName() {
         String changeData = "{\"" + "name" + "\":" + "\"" + RandomStringUtils.randomAlphabetic(3) + user.name + "\"}";
         userRequest.changeUnauthorized(changeData).then().assertThat()
-                .body("message", equalTo("You should be authorised"))
-                .statusCode(401);
+                .statusCode(401)
+                .body("message", equalTo("You should be authorised"));
     }
 }

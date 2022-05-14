@@ -38,8 +38,8 @@ public class LoginUserTest {
     @Description("Тест проверяет возможность авторизации пользователя и вывода в случае успеха accessToken пользователя")
     public void userCanCreatedAndBeLogIn() {
         userRequest.login(UserLogin.from(user).toString()).then().assertThat()
-                .body("accessToken", notNullValue())
-                .statusCode(200);
+                .statusCode(200)
+                .body("accessToken", notNullValue());
     }
 
     @Test
@@ -48,8 +48,8 @@ public class LoginUserTest {
     public void userLoginWithoutRequiredFieldPassword() {
         UserLogin userLogin = new UserLogin(user.login, "");
         userRequest.login(userLogin.toString()).then().assertThat()
-                .body("message", equalTo("email or password are incorrect"))
-                .statusCode(401);
+                .statusCode(401)
+                .body("message", equalTo("email or password are incorrect"));
     }
 
     @Test
@@ -58,8 +58,8 @@ public class LoginUserTest {
     public void userLoginWithoutRequiredFieldEmail() {
         UserLogin userLogin = new UserLogin("", user.password);
         userRequest.login(userLogin.toString()).then().assertThat()
-                .body("message", equalTo("email or password are incorrect"))
-                .statusCode(401);
+                .statusCode(401)
+                .body("message", equalTo("email or password are incorrect"));
     }
 
     @Test
@@ -68,8 +68,8 @@ public class LoginUserTest {
     public void courierIdIncorrectFieldEmail() {
         UserLogin userLogin = new UserLogin("111" + user.login, user.password);
         userRequest.login(userLogin.toString()).then().assertThat()
-                .body("message", equalTo("email or password are incorrect"))
-                .statusCode(401);
+                .statusCode(401)
+                .body("message", equalTo("email or password are incorrect"));
     }
 
     @Test
@@ -78,7 +78,7 @@ public class LoginUserTest {
     public void courierIdIncorrectFieldPassword() {
         UserLogin userLogin = new UserLogin(user.login, user.password + "111");
         userRequest.login(userLogin.toString()).then().assertThat()
-                .body("message", equalTo("email or password are incorrect"))
-                .statusCode(401);
+                .statusCode(401)
+                .body("message", equalTo("email or password are incorrect"));
     }
 }

@@ -43,9 +43,9 @@ public class CreateOrderTest {
     public void createOrderUnauthorizedTest() {
         order.ingredientCreate();
         order.createOrderUnauthorized().then().assertThat()
+                .statusCode(200)
                 .body("order.createdAt", nullValue())
-                .body("order.owner", nullValue())
-                .statusCode(200);
+                .body("order.owner", nullValue());
     }
 
     @Test
@@ -54,9 +54,9 @@ public class CreateOrderTest {
     public void createOrderAuthorizedTest() {
         order.ingredientCreate();
         order.createOrderAuthorized().then().assertThat()
+                .statusCode(200)
                 .body("order.createdAt", notNullValue())
-                .body("order.owner", notNullValue())
-                .statusCode(200);
+                .body("order.owner", notNullValue());
     }
 
     @Test
@@ -65,9 +65,9 @@ public class CreateOrderTest {
     public void createOrderWithoutIngredientsTest() {
         order.json = "{" + "\"ingredients\":[]" + "}";
         order.createOrderAuthorized().then().assertThat()
+                .statusCode(400)
                 .body("success", equalTo(false))
-                .body("message", equalTo("Ingredient ids must be provided"))
-                .statusCode(400);
+                .body("message", equalTo("Ingredient ids must be provided"));
     }
 
     @Test
